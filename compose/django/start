@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+
+gunicorn root.wsgi:application --log-level debug -k gthread -w 3 --threads 2 --bind 0.0.0.0:${PROJECT_PORT}
